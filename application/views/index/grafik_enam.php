@@ -9,7 +9,7 @@
     </div>
 </main>
 <script>
-    getGrafikPie('pendaftar', <?= $grafik2 ?>, 'Grafik Pendaftar Berdasarkan Prodi Pilihan 2');
+    getGrafikPie('pendaftar', <?= $grafik6 ?>, 'Grafik Perbandingan Peserta sudah membayar dan belum');
 
     function getGrafikPie(selector, data, title) {
         Highcharts.chart(selector, {
@@ -23,7 +23,7 @@
                 text: title
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.jumlah:.1f} Pendaftar</b>'
+                pointFormat: '{series}: <b>{point.jumlah:.1f} Pendaftar</b>'
             },
             accessibility: {
                 point: {
