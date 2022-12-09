@@ -101,4 +101,31 @@ class Index extends BaseController
         $data['grafik3'] = json_encode($hasil);
         $this->render('index/grafik_tiga', $data);
     }
+
+    public function pendaftarjalurmasuk()
+    {
+        $data['title'] = 'Grafik Berdasarkan Jalur Masuk';
+        $jalurmasuk = $this->m_pmb->listJalurMasuk();
+        foreach ($jalurmasuk as $key => $p) {
+            $jalurmasuk[$key]['jumlah'] = $this->m_pmb->jumlahPendaftarJalurMasuk($p['id_jalur']);
+            $jalurmasuk[$key]['jumlah4'] = $this->m_pmb->jumlahPendaftarJalurMasuk($p['id_jalur']);
+            $jalurmasuk[$key]['size'] = rand(10, 30);
+        }
+
+        //grafik kedua
+        $hasil = null;
+        foreach ($jalurmasuk as $p => $jalurmas) {
+            $hasil[$p] = [
+                "name"  => $jalurmas['nama_jalur'],
+                "jumlah" => $jalurmas['jumlah4'],
+                "y"     => $jalurmas['size'],
+                // "sliced" => $sliced,
+                // 'selected' => $selected
+            ];
+        }
+
+        $data['pendaftar'] = $jalurmasuk;
+        $data['grafik4'] = json_encode($hasil);
+        $this->render('index/grafik_empat', $data);
+    }
 }
