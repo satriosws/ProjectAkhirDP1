@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Satro wicaksono">
-    <title><?= APP_NAME . ' &mdash; By:' . AUTHOR_NAME  ?></title>
+    <title>Project Akhir DP 1 - Satrio w</title>
     <link href="<?= base_url('public') ?>/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('public') ?>/lib/highchart/code/css/highcharts.css" rel="stylesheet">
 
