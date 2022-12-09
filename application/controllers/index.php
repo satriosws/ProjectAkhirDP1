@@ -74,3 +74,4 @@ class Index extends BaseController
         $data['grafik2'] = json_encode($hasil);
         $this->render('index/grafik_dua', $data);
     }
+}
