@@ -155,4 +155,31 @@ class Index extends BaseController
         $data['grafik5'] = json_encode($hasil);
         $this->render('index/grafik_lima', $data);
     }
+
+    public function pendaftarbayar()
+    {
+        $data['title'] = 'Grafik Perbandingan Pembayaran Peserta';
+        $bayar = $this->m_pmb->listBayar();
+        foreach ($bayar as $key => $p) {
+            $bayar[$key]['jumlah'] = $this->m_pmb->jumlahPendaftarBayar($p['is_bayar']);
+            $bayar[$key]['jumlah6'] = $this->m_pmb->jumlahPendaftarBayar($p['is_bayar']);
+            $bayar[$key]['size'] = rand(10, 30);
+        }
+
+        //grafik kedua
+        $hasil = null;
+        foreach ($bayar as $p => $bay) {
+            $hasil[$p] = [
+                "name"  => $bay['keterangan'],
+                "jumlah" => $bay['jumlah6'],
+                "y"     => $bay['size'],
+                // "sliced" => $sliced,
+                // 'selected' => $selected
+            ];
+        }
+
+        $data['pendaftar'] = $bayar;
+        $data['grafik6'] = json_encode($hasil);
+        $this->render('index/grafik_enam', $data);
+    }
 }
