@@ -75,6 +75,17 @@ class M_pmb extends CI_Model
         return $result;
     }
 
+    public function jumlahPendapatanPendaftaran($id_bank)
+    {
+        $result = 0;
+        $this->db->where('id_bank', $id_bank);
+        $data = $this->db->get('pendaftar')->result_array();
+        if (!empty($data)) {
+            $result = count($data);
+        }
+        return $result;
+    }
+
     
 
     
