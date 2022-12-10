@@ -9,7 +9,7 @@
     </div>
 </main>
 <script>
-    getGrafikPie('pendaftar', <?= $grafik4 ?>, 'Grafik Pendaftar Berdasarkan Pilihan Jalur Masuk');
+    getGrafikPie('pendaftar', <?= $grafik5 ?>, 'Grafik Pendaftar Berdasarkan Pilihan Jalur Masuk');
 
     function getGrafikPie(selector, data, title) {
         Highcharts.chart(selector, {
