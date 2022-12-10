@@ -26,6 +26,11 @@ class M_pmb extends CI_Model
         return $this->db->get('jalur_masuk')->result_array();
     }
 
+    public function listBank()
+    {
+        return $this->db->get('bank')->result_array();
+    }
+
     public function jumlahPendaftarProdi1($idProdi)
     {
         $result = 0;
