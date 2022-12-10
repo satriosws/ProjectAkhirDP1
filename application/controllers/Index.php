@@ -128,4 +128,31 @@ class Index extends BaseController
         $data['grafik4'] = json_encode($hasil);
         $this->render('index/grafik_empat', $data);
     }
+
+    public function pendapatanpendaftaran()
+    {
+        $data['title'] = 'Grafik Berdasarkan Pendapatan Bank';
+        $bank = $this->m_pmb->listBank();
+        foreach ($bank as $key => $p) {
+            $bank[$key]['jumlah'] = $this->m_pmb->jumlahPendapatanPendaftaran($p['id_bank']);
+            $bank[$key]['jumlah5'] = $this->m_pmb->jumlahPendapatanPendaftaran($p['id_bank']);
+            $bank[$key]['size'] = rand(10, 30);
+        }
+
+        //grafik kedua
+        $hasil = null;
+        foreach ($bank as $p => $ban) {
+            $hasil[$p] = [
+                "name"  => $ban['bank'],
+                "jumlah" => $ban['jumlah5'],
+                "y"     => $ban['size'],
+                // "sliced" => $sliced,
+                // 'selected' => $selected
+            ];
+        }
+
+        $data['pendaftar'] = $bank;
+        $data['grafik5'] = json_encode($hasil);
+        $this->render('index/grafik_lima', $data);
+    }
 }
