@@ -67,11 +67,11 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <<div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3 sidebar-sticky">
-                    <ul class="nav flex-column">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+                    <ul class="nav nav-tabs">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="<?= site_url('index') ?>">
                                 <span data-feather="home" class="align-text-bottom"></span>
