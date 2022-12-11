@@ -67,7 +67,7 @@
 </head>
 
 <body>
-    <<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
@@ -81,37 +81,37 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendaftarprodi1') ?>">
                                 <span data-feather="file" class="align-text-bottom"></span>
-                                Pendaftar Berdasarkan Prodi 1
+                                Pendaftar Prodi 1
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendaftarprodi2') ?>">
                                 <span data-feather="file" class="align-text-bottom"></span>
-                                Pendaftar Berdasarkan Prodi 2
+                                Pendaftar Prodi 2
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendaftarprestasi') ?>">
                                 <span data-feather="file" class="align-text-bottom"></span>
-                                Pendaftar Berdasarkan Prestasi
+                                Pendaftar Prestasi
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendaftarjalurmasuk') ?>">
                                 <span data-feather="file" class="align-text-bottom"></span>
-                                Pendaftar Berdasarkan Jalur Masuk
+                                Pendaftar Jalur Masuk
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendapatanpendaftaran') ?>">
                                 <span data-feather="file" class="align-text-bottom"></span>
-                                Pendapatan Berdasarkan Bank
+                                Pendapatan Bank
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendaftarbayar') ?>">
                                 <span data-feather="file" class="align-text-bottom"></span>
-                                Perbandingan Pembayaran Peserta
+                                Pembayaran Peserta
                             </a>
                         </li>
                     </ul>
