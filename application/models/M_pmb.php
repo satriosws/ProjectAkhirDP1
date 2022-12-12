@@ -80,29 +80,27 @@ class M_pmb extends CI_Model
         return $result;
     }
 
-    public function jumlahPendapatanPendaftaran($id_bank)
+    public function jumlahPendapatanBank($idj)
     {
         $result = 0;
-        $this->db->where('id_bank', $id_bank);
-        $data = $this->db->get('pendaftar')->result_array();
+        $this->db->where('id_bank', $idj);
+        $data = $this->db->get('bank')->result_array();
         if (!empty($data)) {
             $result = count($data);
         }
         return $result;
     }
 
-    public function jumlahPendaftarBayar($is_bayar)
+    public function jumlahSPBank($jsp)
     {
         $result = 0;
-        $this->db->where('is_bayar', $is_bayar);
-        $data = $this->db->get('pendaftar')->result_array();
+        $this->db->where('id_bank', $jsp);
+        $data = $this->db->get('bank')->result_array();
         if (!empty($data)) {
             $result = count($data);
         }
         return $result;
     }
-
-    
 
     
 }
