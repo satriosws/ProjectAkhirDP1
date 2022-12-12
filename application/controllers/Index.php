@@ -129,56 +129,54 @@ class Index extends BaseController
         $this->render('index/grafik_empat', $data);
     }
 
-    public function pendapatanpendaftaran()
+    public function pendapatanbank()
     {
-        $data['title'] = 'Grafik Berdasarkan Pendapatan Bank';
-        $bank = $this->m_pmb->listBank();
-        foreach ($bank as $key => $p) {
-            $bank[$key]['jumlah'] = $this->m_pmb->jumlahPendapatanPendaftaran($p['id_bank']);
-            $bank[$key]['jumlah5'] = $this->m_pmb->jumlahPendapatanPendaftaran($p['id_bank']);
-            $bank[$key]['size'] = rand(10, 30);
+        $data['title'] = 'Grafik Pendapatan dari Masing-masing Bank';
+        $pndtbank = $this->m_pmb->listBank();
+        foreach ($pndtbank as $key => $bnk) {
+            $pndtbank[$key]['jumlah5'] = $this->m_pmb->jumlahPendapatanBank($bnk['id_bank']);
+            $pndtbank[$key]['size'] = rand(10, 30);
         }
 
-        //grafik kedua
+        //grafik kelima
         $hasil = null;
-        foreach ($bank as $p => $ban) {
-            $hasil[$p] = [
-                "name"  => $ban['bank'],
-                "jumlah" => $ban['jumlah5'],
-                "y"     => $ban['size'],
+        foreach ($pndtbank as $bnk => $bnka) {
+            $hasil[$bnk] = [
+                "name"  => $bnka['nama_bank'],
+                "jumlah" => $bnka['jumlah5'],
+                "y"     => $bnka['size'],
                 // "sliced" => $sliced,
                 // 'selected' => $selected
             ];
         }
 
-        $data['pendaftar'] = $bank;
+        $data['pendaftar'] = $pndtbank;
         $data['grafik5'] = json_encode($hasil);
         $this->render('index/grafik_lima', $data);
     }
 
-    public function pendaftarbayar()
+    public function jumlahyangbayarbelum()
     {
-        $data['title'] = 'Grafik Perbandingan Pembayaran Peserta';
-        $bayar = $this->m_pmb->listBayar();
-        foreach ($bayar as $key => $p) {
-            $bayar[$key]['jumlah'] = $this->m_pmb->jumlahPendaftarBayar($p['is_bayar']);
-            $bayar[$key]['jumlah6'] = $this->m_pmb->jumlahPendaftarBayar($p['is_bayar']);
-            $bayar[$key]['size'] = rand(10, 30);
+        $data['title'] = 'Grafik Status Pembayaran Bank';
+        $jumlahspbank = $this->m_pmb->listBank();
+        foreach ($jumlahspbank as $key => $jsp) {
+            $jumlahspbank[$key]['jumlah6'] = $this->m_pmb->jumlahSPBank($jsp['id_bank']);
+            $jumlahspbank[$key]['size'] = rand(10, 30);
         }
 
-        //grafik kedua
+        //grafik keenam
         $hasil = null;
-        foreach ($bayar as $p => $bay) {
-            $hasil[$p] = [
-                "name"  => $bay['keterangan'],
-                "jumlah" => $bay['jumlah6'],
-                "y"     => $bay['size'],
+        foreach ($jumlahspbank as $jsp => $jp) {
+            $hasil[$jsp] = [
+                "name"  => $jp['nama_bank'],
+                "jumlah" => $jp['jumlah6'],
+                "y"     => $jp['size'],
                 // "sliced" => $sliced,
                 // 'selected' => $selected
             ];
         }
 
-        $data['pendaftar'] = $bayar;
+        $data['pendaftar'] = $jumlahspbank;
         $data['grafik6'] = json_encode($hasil);
         $this->render('index/grafik_enam', $data);
     }
