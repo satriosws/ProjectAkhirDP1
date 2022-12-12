@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Satro wicaksono">
-    <title>Project Akhir DP 1 - Satrio w</title>
+    <title><?= APP_NAME . ' &mdash; By:' . AUTHOR_NAME  ?></title>
     <link href="<?= base_url('public') ?>/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('public') ?>/lib/highchart/code/css/highcharts.css" rel="stylesheet">
 
@@ -64,7 +64,7 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="<?= base_url('public') ?>/dashboard/dashboard.css" rel="stylesheet">
-</head>
+    </head>
 
 <body>
     <div class="container-fluid">
@@ -73,13 +73,13 @@
         <div class="container-fluid">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?= site_url('index') ?>">
-                                <span data-feather="home" class="align-text-bottom"></span>
+                            <a class="nav-link active " aria-current="page" href="<?= site_url('index') ?>">
+                                <span data-feather="home" class="align-text-white"></span>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('index/pendaftarprodi1') ?>">
+                            <a class="nav-link " href="<?= site_url('index/pendaftarprodi1') ?>">
                                 <span data-feather="pie-chart" class="align-text-bottom"></span>
                                 Pendaftar Prodi 1
                             </a>
@@ -93,25 +93,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendaftarprestasi') ?>">
                                 <span data-feather="pie-chart" class="align-text-bottom"></span>
-                                Pendaftar Prestasi
+                                Pendaftar Berdasarkan Prestasi
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('index/pendaftarjalurmasuk') ?>">
                                 <span data-feather="pie-chart" class="align-text-bottom"></span>
-                                Pendaftar Jalur Masuk
+                                Pendaftar Berdasarkan Jalur Masuk
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('index/pendapatanpendaftaran') ?>">
+                            <a class="nav-link" href="<?= site_url('index/pendapatanbank') ?>">
                                 <span data-feather="pie-chart" class="align-text-bottom"></span>
-                                Pendapatan Bank
+                                Pendapatan Berdasarkan Bank
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('index/pendaftarbayar') ?>">
+                            <a class="nav-link" href="<?= site_url('index/jumlahyangbayarbelum') ?>">
                                 <span data-feather="pie-chart" class="align-text-bottom"></span>
-                                Pembayaran Peserta
+                                Perbandingan Pembayaran Peserta
                             </a>
                         </li>
                     </ul>
