@@ -1,4 +1,4 @@
-<main class="ms-sm-auto px-md-4 bg-secondary">
+<main class="ms-sm-auto px-md-4 bg-primary">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2"><?php echo !empty($title) ? $title : null ?></h1>
         <h3>Jumlah Masuk : 1000 peserta</h3>
