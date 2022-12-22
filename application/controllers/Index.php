@@ -78,60 +78,50 @@ class Index extends BaseController
     public function pendaftarprestasi()
     {
         $data['title'] = 'Grafik Berdasarkan Prestasi';
-        $prestasi = $this->m_pmb->listPrestasi();
-        foreach ($prestasi as $key => $p) {
-            $prestasi[$key]['jumlah'] = $this->m_pmb->jumlahPendaftarPrestasi($p['tingkat_prestasi']);
-            $prestasi[$key]['jumlah3'] = $this->m_pmb->jumlahPendaftarPrestasi($p['tingkat_prestasi']);
-            $prestasi[$key]['size'] = rand(10, 30);
-        }
-
-        //grafik kedua
-        $hasil = null;
-        foreach ($prestasi as $p => $pres) {
-            $hasil[$p] = [
-                "name"  => $pres['tingkat_prestasi'],
-                "jumlah" => $pres['jumlah3'],
-                "y"     => $pres['size'],
-                // "sliced" => $sliced,
-                // 'selected' => $selected
+        $pendaftar = $this->m_pmb->jumlahPendaftarPrestasi();
+        // echo $this->db->last_query();
+        // die;
+        $grafik = null;
+        $sumtotal = 0;
+        foreach ($pendaftar as $key => $value) {
+            $sumtotal += $value['jumlah'];
+            $grafik[$key] = [
+                'name' => $value['tingkat_prestasi'],
+                'jumlah' => intval($value['jumlah']),
+                'y' => intval($value['jumlah']),
             ];
         }
 
-        $data['pendaftar_prestasi'] = $prestasi;
-        $data['grafik3'] = json_encode($hasil);
+        $data['subtitle'] = 'Jumlah Pendaftar:' . $sumtotal;
+        $data['grafik'] = json_encode($grafik);
         $this->render('index/grafik_tiga', $data);
     }
 
-    public function pendaftarjalurmasuk()
+    public function pendaftarJalurMasuk()
     {
         $data['title'] = 'Grafik Berdasarkan Jalur Masuk';
-        $jalurmasuk = $this->m_pmb->listJalurMasuk();
-        foreach ($jalurmasuk as $key => $p) {
-            $jalurmasuk[$key]['jumlah'] = $this->m_pmb->jumlahPendaftarJalurMasuk($p['id_jalur']);
-            $jalurmasuk[$key]['jumlah4'] = $this->m_pmb->jumlahPendaftarJalurMasuk($p['id_jalur']);
-            $jalurmasuk[$key]['size'] = rand(10, 30);
-        }
-
-        //grafik kedua
-        $hasil = null;
-        foreach ($jalurmasuk as $p => $jalurmas) {
-            $hasil[$p] = [
-                "name"  => $jalurmas['nama_jalur'],
-                "jumlah" => $jalurmas['jumlah4'],
-                "y"     => $jalurmas['size'],
-                // "sliced" => $sliced,
-                // 'selected' => $selected
+        $pendaftar = $this->m_pmb->jumlahPendaftarJalurMasuk();
+        // echo $this->db->last_query();
+        // die;
+        $grafik = null;
+        $sumtotal = 0;
+        foreach ($pendaftar as $key => $value) {
+            $sumtotal += $value['jumlah'];
+            $grafik[$key] = [
+                'name' => $value['nama_jalur'],
+                'jumlah' => intval($value['jumlah']),
+                'y' => intval($value['jumlah']),
             ];
         }
 
-        $data['pendaftar'] = $jalurmasuk;
-        $data['grafik4'] = json_encode($hasil);
+        $data['subtitle'] = 'Jumlah Pendaftar:' . $sumtotal;
+        $data['grafik'] = json_encode($grafik);
         $this->render('index/grafik_empat', $data);
     }
 
     public function pendapatanbank()
     {
-        $data['title'] = 'Grafik Pendapatan dari Masing-masing Bank';
+        $data['title'] = 'Grafik Pendapatan Dari Masing-masing Bank';
         $pndtbank = $this->m_pmb->listBank();
         foreach ($pndtbank as $key => $bnk) {
             $pndtbank[$key]['jumlah5'] = $this->m_pmb->jumlahPendapatanBank($bnk['id_bank']);
