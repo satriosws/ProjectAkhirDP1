@@ -10,7 +10,7 @@
     </div>
 </main>
 <script>
-    getGrafikPie('pendaftar', <?= $grafik3 ?>, 'Grafik Pendaftar Berdasarkan Pilihan Prestasi');
+    getGrafikPie('pendaftar', <?= $grafik ?>, 'Grafik Pendaftar Berdasarkan Pilihan Prestasi');
 
     function getGrafikPie(selector, data, title) {
         Highcharts.chart(selector, {
