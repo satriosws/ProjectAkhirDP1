@@ -58,13 +58,13 @@ class M_pmb extends CI_Model
         return $result;
     }
 
-    public function jumlahPendaftarPrestasi($tingkat_prestasi)
+    public function jumlahPendaftarPrestasi()
     {
         return $this->db->query('SELECT count(id_pendaftar) as jumlah, tingkat_prestasi
         FROM pendaftar_prestasi GROUP BY tingkat_prestasi')->result_array();
     }
 
-    public function jumlahPendaftarJalurMasuk($id_jalur)
+    public function jumlahPendaftarJalurMasuk()
     {
         $this->db->select(['count(id_pendaftar) as jumlah', 'pendaftar.id_jalur', 'j.nama_jalur']);
         $this->db->join('jalur_masuk j', 'pendaftar.id_jalur = j.id_jalur');
