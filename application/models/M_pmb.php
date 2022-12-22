@@ -66,12 +66,10 @@ class M_pmb extends CI_Model
 
     public function jumlahPendaftarJalurMasuk($id_jalur)
     {
-        $result = 0;
-        $this->db->where('id_jalur', $id_jalur);
-        $data = $this->db->get('pendaftar')->result_array();
-        if (!empty($data)) {
-            $result = count($data);
-        }
+        $this->db->select(['count(id_pendaftar) as jumlah', 'pendaftar.id_jalur', 'j.nama_jalur']);
+        $this->db->join('jalur_masuk j', 'pendaftar.id_jalur = j.id_jalur');
+        $this->db->group_by('pendaftar.id_jalur');
+        $result = $this->db->get('pendaftar')->result_array();
         return $result;
     }
 
